@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router, Redirect, Route, Switch} from 'react-router-dom';
 
-function App() {
+import CategoriesPage from "./pages/CategoriesPage";
+import ProductPage from "./pages/ProductPage";
+import SingleProductPage from "./pages/SingleProductPage";
+import {ProductProvider} from "./context/ProductContext";
+import {createBrowserHistory} from "history";
+
+const App = () => {
+  const browserHistory = createBrowserHistory();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <ProductProvider>
+        <Router history={browserHistory}>
+            <Switch>
+              <Route path="/"
+                component={CategoriesPage}
+                exact/>
+              <Route path="/products/:id"
+                component={ProductPage}
+                exact/>
+              <Route path="/single/:id"
+                component={SingleProductPage}
+                exact/>
+            </Switch>
+          </Router>
+      </ProductProvider>
+    </>
   );
 }
 
