@@ -9,7 +9,7 @@ export const SingleProductPage = (links) => {
     //get products of the category and pass it back to products page
     //links.location.params["category"] this is the slug to get prod
     //const prod = getProduct(links.location.params["category"]);
-
+    //adding more comments
     // console.log("links in single");
     // console.log(links);
     // console.log(links.location.params["name"]);
