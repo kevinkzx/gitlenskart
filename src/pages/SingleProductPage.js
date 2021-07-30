@@ -35,3 +35,4 @@ export const SingleProductPage = (links) => {
     )
 }
 export default SingleProductPage;
+//additional comments in singleproductpage.js
